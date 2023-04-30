@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
 
@@ -18,7 +19,7 @@ const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#ffffff',
   },
   menubutton: {
     width: 44,
@@ -27,41 +28,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
   },
-  itemContainer: {
-    justifyContent: 'center',
-    height: 150,
-  },
-  GameDisplay: {
-    height: 90,
-    width: 109,
-    borderRadius: 30,
-    backgroundColor: '#97DEFF',
-  },
-  GameTitle: {
-    maxWidth: 115,
-    maxHeight: 40,
-    fontFamily: 'Inter',
-    fontWeight: 'bold',
-    color: 'black',
-    paddingTop: 5,
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  GameDesc: {
-    maxWidth: 115,
-    maxHeight: 62,
-    fontFamily: 'Inter',
-    color: 'black',
-    fontSize: 12,
-    paddingTop: 2,
-    textAlign: 'center',
-  },
 });
 
 const eventItemsSmall = [
-  {nama: 'Tebak Kata', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Tebak Gambar', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Connect 1 to 1', time: '', desc: 'Ini adalah deskripsi event.'},
+  {nama: 'Event1', time: '', desc: 'Ini adalah deskripsi event.'},
+  {nama: 'Event2', time: '', desc: 'Ini adalah deskripsi event.'},
+  {nama: 'Event3', time: '', desc: 'Ini adalah deskripsi event.'},
   {nama: 'Event4', time: '', desc: 'Ini adalah deskripsi event.'},
   {nama: 'Event5', time: '', desc: 'Ini adalah deskripsi event.'},
 ];
@@ -71,19 +43,42 @@ const renderEventItem = ({item}) => {
     <View
       style={{
         alignItems: 'center',
-        paddingTop: 20,
-        paddingBottom: 20,
       }}>
-      <TouchableOpacity style={styles.GameDisplay}></TouchableOpacity>
+      <TouchableOpacity
+        style={{
+          width: 284,
+          height: 184,
+          backgroundColor: '#97DEFF',
+          borderRadius: 30,
+        }}></TouchableOpacity>
       <View>
-        <Text style={styles.GameTitle}>{item.nama}</Text>
-        <Text style={styles.GameDesc}>{item.desc}</Text>
+        <Text
+          style={{
+            textAlign: 'center',
+          }}>
+          {item.nama}
+        </Text>
+        <Text
+          style={{
+            textAlign: 'center',
+          }}>
+          {item.desc}
+        </Text>
       </View>
     </View>
   );
 };
 
-const PageGame = ({navigation}) => {
+const EventScreen = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = event => {
+    const scrollPosition = event.nativeEvent.contentOffset.x;
+    setScrollPosition(scrollPosition);
+  };
+};
+
+const EventPage = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View
@@ -94,13 +89,12 @@ const PageGame = ({navigation}) => {
         style={{
           height: height - 126,
         }}>
-        <View>
-          <FlatGrid
-            itemDimension={130}
-            data={eventItemsSmall}
-            renderItem={renderEventItem}
-          />
-        </View>
+        <FlatGrid
+          horizontal={true}
+          itemDimension={300}
+          data={eventItemsSmall}
+          renderItem={renderEventItem}
+        />
       </View>
 
       <View
@@ -114,10 +108,10 @@ const PageGame = ({navigation}) => {
         <TouchableOpacity
           style={styles.menubutton}
           onPress={() => navigation.replace('Video')}></TouchableOpacity>
-        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Event')}></TouchableOpacity>
+          onPress={() => navigation.replace('Game')}></TouchableOpacity>
+        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
           onPress={() => navigation.replace('Exchange')}></TouchableOpacity>
@@ -126,4 +120,4 @@ const PageGame = ({navigation}) => {
   );
 };
 
-export default PageGame;
+export default EventPage;

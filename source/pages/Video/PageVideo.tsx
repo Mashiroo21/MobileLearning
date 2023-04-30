@@ -26,33 +26,78 @@ const styles = StyleSheet.create({
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
   },
+  videotitle: {
+    fontSize: 16,
+    fontFamily: 'Inter',
+    fontWeight: 'bold',
+    color: 'black',
+    maxHeight: 40,
+    maxWidth: width - 178,
+  },
+  videodescriptions: {
+    fontSize: 12,
+    fontFamily: 'Inter',
+    color: 'black',
+    maxWidth: width - 178,
+    maxHeight: 72,
+    paddingTop: 5,
+  },
 });
+
+const VideoList = ({desc, title}) => {
+  return (
+    <View
+      style={{
+        height: 150,
+        backgroundColor: '#ffffff',
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderColor: '#efefef',
+        borderWidth: 1,
+      }}>
+      <TouchableOpacity
+        style={{
+          height: 90,
+          width: 120,
+          borderRadius: 30,
+          backgroundColor: '#97DEFF',
+          marginLeft: 18,
+        }}></TouchableOpacity>
+      <View
+        style={{
+          paddingHorizontal: 20,
+        }}>
+        <Text style={styles.videotitle}>{title}</Text>
+        <Text style={styles.videodescriptions}>{desc}</Text>
+      </View>
+    </View>
+  );
+};
 
 const PageVideo = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#000000" barStyle="light-content" />
+      <View
+        style={{
+          height: 56,
+        }}></View>
       <View
         style={{
           height: height - 126,
         }}>
-        <View
-          style={{
-            height: 177,
-            backgroundColor: '#e5e5e5',
-            justifyContent: 'center',
-          }}>
-          <TouchableOpacity
-            style={{
-              height: 90,
-              width: 120,
-              borderRadius: 30,
-              backgroundColor: '#97DEFF',
-              marginLeft: 18,
-            }}></TouchableOpacity>
-        </View>
+        <VideoList
+          title="Judul Video"
+          desc="Ini adalah contoh dari deskripsi Video di samping"
+        />
+        <VideoList
+          title="Judul Video yang Agak Panjang"
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini coba saya buat agak panjang sebagai contoh."
+        />
+        <VideoList
+          title="Judul Video yang Sangat Sangat Panjang."
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+        />
       </View>
-
       <View
         style={{
           height: 70,
@@ -65,8 +110,12 @@ const PageVideo = ({navigation}) => {
         <TouchableOpacity
           style={styles.menubutton}
           onPress={() => navigation.replace('Game')}></TouchableOpacity>
-        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
-        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
+        <TouchableOpacity
+          style={styles.menubutton}
+          onPress={() => navigation.replace('Event')}></TouchableOpacity>
+        <TouchableOpacity
+          style={styles.menubutton}
+          onPress={() => navigation.replace('Exchange')}></TouchableOpacity>
       </View>
     </View>
   );

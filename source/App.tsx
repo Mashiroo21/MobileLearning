@@ -17,6 +17,7 @@ import Router from './Router';
 const App = () => {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="#62CDFF" barStyle="dark-content" />
       <Router />
     </NavigationContainer>
   );

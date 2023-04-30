@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
 const SignInPage = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#000000" barStyle="light-content" />
       <View
         style={{
           marginTop: 20,
