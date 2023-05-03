@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -28,9 +28,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
   },
+  EventView: {
+    width: 284,
+    height: 184,
+    borderRadius: 30,
+    backgroundColor: '#97DEFF',
+  },
 });
 
-const eventItemsSmall = [
+const eventItems = [
   {nama: 'Event1', time: '', desc: 'Ini adalah deskripsi event.'},
   {nama: 'Event2', time: '', desc: 'Ini adalah deskripsi event.'},
   {nama: 'Event3', time: '', desc: 'Ini adalah deskripsi event.'},
@@ -38,47 +44,13 @@ const eventItemsSmall = [
   {nama: 'Event5', time: '', desc: 'Ini adalah deskripsi event.'},
 ];
 
-const renderEventItem = ({item}) => {
-  return (
-    <View
-      style={{
-        alignItems: 'center',
-      }}>
-      <TouchableOpacity
-        style={{
-          width: 284,
-          height: 184,
-          backgroundColor: '#97DEFF',
-          borderRadius: 30,
-        }}></TouchableOpacity>
-      <View>
-        <Text
-          style={{
-            textAlign: 'center',
-          }}>
-          {item.nama}
-        </Text>
-        <Text
-          style={{
-            textAlign: 'center',
-          }}>
-          {item.desc}
-        </Text>
-      </View>
-    </View>
-  );
-};
-
-const EventScreen = () => {
+const EventPage = ({navigation}) => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = event => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
     setScrollPosition(scrollPosition);
   };
-};
-
-const EventPage = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View
@@ -89,12 +61,24 @@ const EventPage = ({navigation}) => {
         style={{
           height: height - 126,
         }}>
-        <FlatGrid
+        <ScrollView
           horizontal={true}
-          itemDimension={300}
-          data={eventItemsSmall}
-          renderItem={renderEventItem}
-        />
+          showsHorizontalScrollIndicator={false}
+          onScroll={handleScroll}
+          pagingEnabled={true}
+          snapToInterval={150}
+          snapToAlignment={'start'}>
+          {eventItems.map((item, index) => (
+            <View key={index}>
+              <TouchableOpacity style={styles.EventView}></TouchableOpacity>
+              <View>
+                <Text>{item.nama}</Text>
+                <Text>{item.desc}</Text>
+              </View>
+            </View>
+          ))}
+        </ScrollView>
+        <Text>Test</Text>
       </View>
 
       <View
