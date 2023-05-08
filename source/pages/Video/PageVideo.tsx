@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 
 const {height, width} = Dimensions.get('window');
@@ -81,7 +82,7 @@ const PageVideo = ({navigation}) => {
         style={{
           height: 56,
         }}></View>
-      <View
+      <ScrollView
         style={{
           height: height - 126,
         }}>
@@ -97,7 +98,23 @@ const PageVideo = ({navigation}) => {
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
         />
-      </View>
+        <VideoList
+          title="Judul Video yang Sangat Sangat Panjang."
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+        />
+        <VideoList
+          title="Judul Video yang Sangat Sangat Panjang."
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+        />
+        <VideoList
+          title="Judul Video yang Sangat Sangat Panjang."
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+        />
+        <VideoList
+          title="Judul Video yang Sangat Sangat Panjang."
+          desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+        />
+      </ScrollView>
       <View
         style={{
           height: 70,

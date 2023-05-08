@@ -28,29 +28,60 @@ const styles = StyleSheet.create({
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
   },
-  EventView: {
-    width: 284,
-    height: 184,
-    borderRadius: 30,
-    backgroundColor: '#97DEFF',
+  MultiplayerView: {
+    
+  },
+  wrap: {
+    width: width,
+    height: height * 0.25,
+  },
+  wrapDot: {
+    position: 'absolute',
+    bottom: 0,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  dotActive: {
+    margin: 3,
+    color: '#3C84AB',
+  },
+  dot: {
+    margin: 3,
+    color: '#D9D9D9',
   },
 });
 
+const images = [
+  'https://i0.wp.com/blog.dimensidata.com/wp-content/uploads/Mengenal-Macam-Jenis-Jaringan-Komputer-dan-Pengertiannya.jpg',
+  'https://www.mas-software.com/wp-content/uploads/2021/06/Jaringan-Komputer-Adalah.jpg',
+];
+
 const eventItems = [
-  {nama: 'Event1', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event2', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event3', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event4', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event5', time: '', desc: 'Ini adalah deskripsi event.'},
+  {nama: 'Multiplayer 1', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
+  {nama: 'Multiplayer 2', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
+  {nama: 'Multiplayer 3', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
+  {nama: 'Multiplayer 4', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
+  {nama: 'Multiplayer 5', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
 ];
 
 const EventPage = ({navigation}) => {
+  const [imgActive, setimgActive] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const onchange = nativeEvent => {
+    if (nativeEvent) {
+      const slide = Math.ceil(
+        nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.widht,
+      );
+      if (slide != imgActive) {
+        setimgActive(slide);
+      }
+    }
+  };
   const handleScroll = event => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
     setScrollPosition(scrollPosition);
   };
+
   return (
     <View style={styles.container}>
       <View
@@ -61,6 +92,32 @@ const EventPage = ({navigation}) => {
         style={{
           height: height - 126,
         }}>
+        <View style={{height: height * 0.25}}>
+          <ScrollView
+            onScroll={({nativeEvent}) => onchange(nativeEvent)}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+            horizontal
+            style={styles.wrap}>
+            {images.map((e, index) => (
+              <Image
+                key={e}
+                resizeMode="stretch"
+                style={styles.wrap}
+                source={{uri: e}}
+              />
+            ))}
+          </ScrollView>
+          <View style={styles.wrapDot}>
+            {images.map((e, index) => (
+              <Text
+                key={e}
+                style={imgActive == index ? styles.dotActive : styles.dot}>
+                ⬤
+              </Text>
+            ))}
+          </View>
+        </View>
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -70,7 +127,7 @@ const EventPage = ({navigation}) => {
           snapToAlignment={'start'}>
           {eventItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.EventView}></TouchableOpacity>
+              <TouchableOpacity style={styles.MultiplayerView}></TouchableOpacity>
               <View>
                 <Text>{item.nama}</Text>
                 <Text>{item.desc}</Text>
@@ -78,7 +135,6 @@ const EventPage = ({navigation}) => {
             </View>
           ))}
         </ScrollView>
-        <Text>Test</Text>
       </View>
 
       <View
