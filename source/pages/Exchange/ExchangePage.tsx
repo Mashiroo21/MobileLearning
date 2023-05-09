@@ -81,11 +81,41 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginEnd: 10,
   },
-  allItemWrap: {},
-  allItem: {},
-  allItemTitle: {},
-  allItemDesc: {},
-  allPrice: {},
+  allItemWrap: {
+    marginTop: 20,
+    alignSelf: 'center',
+  },
+  allItem: {
+    width: 129,
+    height: 115,
+    backgroundColor: '#97DEFF',
+    borderRadius: 30,
+  },
+  allItemTitle: {
+    width: width * 0.5,
+    height: 18,
+    fontFamily: 'Inter',
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'black',
+  },
+  allItemDesc: {
+    width: width * 0.5,
+    height: 53,
+    fontFamily: 'Inter',
+    fontSize: 14,
+    fontWeight: 'normal',
+    color: 'black',
+    marginTop: 5,
+  },
+  allPrice: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#97DEFF',
+    width: 72,
+    height: 29,
+    borderRadius: 30,
+    marginTop: 10,
+  },
   wrap: {
     width: width * 0.9,
     height: height * 0.175,
@@ -213,12 +243,15 @@ const ExchangePage = ({navigation}) => {
             <View
               style={{
                 flexDirection: 'row',
+                marginTop: 15,
               }}
               key={index}>
               <TouchableOpacity style={styles.allItem}></TouchableOpacity>
               <View
                 style={{
                   alignSelf: 'center',
+                  width: width * 0.6,
+                  paddingHorizontal: 10,
                 }}>
                 <Text style={styles.allItemTitle}>{item.nama}</Text>
                 <Text style={styles.allItemDesc}>{item.desc}</Text>
