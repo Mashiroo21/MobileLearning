@@ -118,6 +118,7 @@ const PageVideo = ({navigation}) => {
             justifyContent: 'center',
           }}></TouchableOpacity>
         <TouchableOpacity
+          onPress={() => navigation.navigate('Profil')}
           style={{
             width: 44,
             height: 42,

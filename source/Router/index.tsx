@@ -8,6 +8,7 @@ import {
   SignInPage,
   EventPage,
   ExchangePage,
+  ProfilPage,
 } from '../pages';
 
 const Stack = createNativeStackNavigator();
@@ -43,6 +44,11 @@ const Router = () => {
       <Stack.Screen
         name="Exchange"
         component={ExchangePage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Profil"
+        component={ProfilPage}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

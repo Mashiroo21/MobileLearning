@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
 });
 
 const eventItemsSmall = [
-  {nama: 'Tebak Kata', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Tebak Gambar', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Connect 1 to 1', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event4', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event5', time: '', desc: 'Ini adalah deskripsi event.'},
+  {nama: 'Tebak Kata', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Tebak Gambar', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Connect 1 to 1', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Game 4', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Game 5', time: '', desc: 'Ini adalah deskripsi Game.'},
 ];
 
 const renderEventItem = ({item}) => {
@@ -93,7 +93,7 @@ const PageGame = ({navigation}) => {
           flexDirection: 'row',
           width: width,
         }}>
-        <TouchableOpacity
+        <View
           style={{
             width: 110,
             height: 42,
@@ -112,21 +112,11 @@ const PageGame = ({navigation}) => {
               color: '#fff',
               alignSelf: 'center',
             }}>
-            Filter
+            Kelas X
           </Text>
-        </TouchableOpacity>
+        </View>
         <TouchableOpacity
-          style={{
-            width: 44,
-            height: 42,
-            backgroundColor: '#62CDFF',
-            alignSelf: 'flex-start',
-            borderRadius: 14,
-            marginTop: 10,
-            marginLeft: 8,
-            justifyContent: 'center',
-          }}></TouchableOpacity>
-        <TouchableOpacity
+          onPress={() => navigation.navigate('Profil')}
           style={{
             width: 44,
             height: 42,
@@ -134,7 +124,7 @@ const PageGame = ({navigation}) => {
             alignSelf: 'flex-start',
             borderRadius: 14,
             marginTop: 10,
-            marginLeft: width * 0.4,
+            marginLeft: width * 0.52,
             justifyContent: 'center',
           }}></TouchableOpacity>
       </View>

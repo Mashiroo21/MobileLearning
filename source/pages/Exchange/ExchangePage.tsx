@@ -196,6 +196,7 @@ const ExchangePage = ({navigation}) => {
           <Text style={styles.PriceFont}>999999</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => navigation.navigate('Profil')}
           style={{
             width: 44,
             height: 42,
