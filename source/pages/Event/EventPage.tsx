@@ -29,11 +29,25 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   MultiplayerView: {
-    
+    height: height * 0.125,
+    width: width * 0.8,
+    borderRadius: 30,
+    backgroundColor: '#97DEFF',
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  MultiplayerText: {
+    position: 'absolute',
+    bottom: 10,
+    fontFamily: 'inter',
+    color: 'black',
+    fontWeight: 'bold',
+    marginStart: 20,
   },
   wrap: {
-    width: width,
+    width: width * 0.8,
     height: height * 0.25,
+    alignSelf: 'center',
   },
   wrapDot: {
     position: 'absolute',
@@ -57,11 +71,11 @@ const images = [
 ];
 
 const eventItems = [
-  {nama: 'Multiplayer 1', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
-  {nama: 'Multiplayer 2', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
-  {nama: 'Multiplayer 3', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
-  {nama: 'Multiplayer 4', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
-  {nama: 'Multiplayer 5', time: '', desc: 'Ini adalah deskripsi Multiplayer .'},
+  {nama: 'Multiplayer 1', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {nama: 'Multiplayer 2', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {nama: 'Multiplayer 3', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {nama: 'Multiplayer 4', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {nama: 'Multiplayer 5', desc: 'Ini adalah deskripsi Multiplayer.'},
 ];
 
 const EventPage = ({navigation}) => {
@@ -88,7 +102,13 @@ const EventPage = ({navigation}) => {
         style={{
           height: 56,
         }}></View>
-      <View
+      <ScrollView
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}
+        onScroll={handleScroll}
+        pagingEnabled={true}
+        snapToInterval={150}
+        snapToAlignment={'start'}
         style={{
           height: height - 126,
         }}>
@@ -118,24 +138,16 @@ const EventPage = ({navigation}) => {
             ))}
           </View>
         </View>
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          onScroll={handleScroll}
-          pagingEnabled={true}
-          snapToInterval={150}
-          snapToAlignment={'start'}>
+        <View>
           {eventItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.MultiplayerView}></TouchableOpacity>
-              <View>
-                <Text>{item.nama}</Text>
-                <Text>{item.desc}</Text>
-              </View>
+              <TouchableOpacity style={styles.MultiplayerView}>
+                <Text style={styles.MultiplayerText}>{item.nama}</Text>
+              </TouchableOpacity>
             </View>
           ))}
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
 
       <View
         style={{

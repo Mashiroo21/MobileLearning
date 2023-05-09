@@ -34,19 +34,110 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: '#97DEFF',
   },
+  RecommendItemWrap: {
+    flexDirection: 'row',
+    maxHeight: height * 0.28,
+    alignItems: 'flex-start',
+    alignSelf: 'center',
+  },
+  RecommendItem: {
+    width: 96,
+    height: 90,
+    borderRadius: 30,
+    backgroundColor: '#97DEFF',
+    marginHorizontal: 15,
+  },
+  RecItemTitle: {
+    maxWidth: 88,
+    maxHeight: 18,
+    fontSize: 17,
+    fontWeight: 'bold',
+    fontFamily: 'inter',
+    textAlign: 'center',
+    color: 'black',
+  },
+  RecItemDesc: {
+    maxWidth: 88,
+    height: 54,
+    fontSize: 14,
+    fontFamily: 'Inter',
+    textAlign: 'center',
+    color: 'black',
+    paddingTop: 5,
+  },
+  RecPrice: {
+    alignSelf: 'center',
+    backgroundColor: '#97DEFF',
+    width: 72,
+    height: 29,
+    borderRadius: 30,
+    marginTop: 10,
+  },
+  PriceFont: {
+    fontFamily: 'Impact',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#AA77FF',
+    textAlign: 'right',
+    marginEnd: 10,
+  },
+  allItemWrap: {},
+  allItem: {},
+  allItemTitle: {},
+  allItemDesc: {},
+  allPrice: {},
+  wrap: {
+    width: width * 0.9,
+    height: height * 0.175,
+    alignSelf: 'center',
+    marginTop: 15,
+  },
+  wrapDot: {
+    position: 'absolute',
+    bottom: 0,
+    flexDirection: 'row',
+    alignSelf: 'center',
+  },
+  dotActive: {
+    margin: 3,
+    color: '#3C84AB',
+  },
+  dot: {
+    margin: 3,
+    color: '#D9D9D9',
+  },
 });
 
-const eventItems = [
-  {nama: 'Event1', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event2', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event3', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event4', time: '', desc: 'Ini adalah deskripsi event.'},
-  {nama: 'Event5', time: '', desc: 'Ini adalah deskripsi event.'},
+const allItems = [
+  {nama: 'Item 1', desc: 'Ini adalah deskripsi Item.', price: '100'},
+  {nama: 'Item 2', desc: 'Ini adalah deskripsi Item.', price: '100'},
+  {nama: 'Item 3', desc: 'Ini adalah deskripsi Item.', price: '100'},
+  {nama: 'Item 4', desc: 'Ini adalah deskripsi Item.', price: '100'},
+  {nama: 'Item 5', desc: 'Ini adalah deskripsi Item.', price: '100'},
+];
+const recItems = [
+  {nama: 'Nama Item', desc: 'Misal Wallpaper Tema.', price: '100'},
+  {nama: 'Nama Item', desc: 'Misal Avatar Basic.', price: '100'},
+  {nama: 'Nama Item', desc: 'Misal Item Boost Score.', price: '100'},
+];
+const images = [
+  'https://i0.wp.com/blog.dimensidata.com/wp-content/uploads/Mengenal-Macam-Jenis-Jaringan-Komputer-dan-Pengertiannya.jpg',
+  'https://www.mas-software.com/wp-content/uploads/2021/06/Jaringan-Komputer-Adalah.jpg',
 ];
 
 const ExchangePage = ({navigation}) => {
+  const [imgActive, setimgActive] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const onchange = nativeEvent => {
+    if (nativeEvent) {
+      const slide = Math.ceil(
+        nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.widht,
+      );
+      if (slide != imgActive) {
+        setimgActive(slide);
+      }
+    }
+  };
   const handleScroll = event => {
     const scrollPosition = event.nativeEvent.contentOffset.x;
     setScrollPosition(scrollPosition);
@@ -58,29 +149,88 @@ const ExchangePage = ({navigation}) => {
         style={{
           height: 56,
         }}></View>
-      <View
+      {/* Start Bagian Item */}
+      <ScrollView
+        horizontal={false}
+        showsHorizontalScrollIndicator={false}
+        onScroll={handleScroll}
+        pagingEnabled={true}
+        snapToInterval={150}
+        snapToAlignment={'start'}
         style={{
           height: height - 126,
         }}>
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          onScroll={handleScroll}
-          pagingEnabled={true}
-          snapToInterval={150}
-          snapToAlignment={'start'}>
-          {eventItems.map((item, index) => (
+        {/* Bagian Recommended Item */}
+        <View style={styles.RecommendItemWrap}>
+          {recItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.EventView}></TouchableOpacity>
-              <View>
-                <Text>{item.nama}</Text>
-                <Text>{item.desc}</Text>
+              <TouchableOpacity style={styles.RecommendItem}></TouchableOpacity>
+              <View
+                style={{
+                  alignSelf: 'center',
+                }}>
+                <Text style={styles.RecItemTitle}>{item.nama}</Text>
+                <Text style={styles.RecItemDesc}>{item.desc}</Text>
+              </View>
+              <TouchableOpacity style={styles.RecPrice}>
+                <Text style={styles.PriceFont}>{item.price}</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+        {/* Recommended ITem End */}
+        {/* Bagian Highlight Item */}
+        <View>
+          <ScrollView
+            onScroll={({nativeEvent}) => onchange(nativeEvent)}
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+            horizontal
+            style={styles.wrap}>
+            {images.map((e, index) => (
+              <Image
+                key={e}
+                resizeMode="stretch"
+                style={styles.wrap}
+                source={{uri: e}}
+              />
+            ))}
+          </ScrollView>
+          <View style={styles.wrapDot}>
+            {images.map((e, index) => (
+              <Text
+                key={e}
+                style={imgActive == index ? styles.dotActive : styles.dot}>
+                ⬤
+              </Text>
+            ))}
+          </View>
+        </View>
+        {/* Highlight Item End */}
+        {/* All Item */}
+        <View style={styles.allItemWrap}>
+          {allItems.map((item, index) => (
+            <View
+              style={{
+                flexDirection: 'row',
+              }}
+              key={index}>
+              <TouchableOpacity style={styles.allItem}></TouchableOpacity>
+              <View
+                style={{
+                  alignSelf: 'center',
+                }}>
+                <Text style={styles.allItemTitle}>{item.nama}</Text>
+                <Text style={styles.allItemDesc}>{item.desc}</Text>
+                <TouchableOpacity style={styles.allPrice}>
+                  <Text style={styles.PriceFont}>{item.price}</Text>
+                </TouchableOpacity>
               </View>
             </View>
           ))}
-        </ScrollView>
-        <Text>Test</Text>
-      </View>
+        </View>
+        {/* All Item End */}
+      </ScrollView>
 
       <View
         style={{
