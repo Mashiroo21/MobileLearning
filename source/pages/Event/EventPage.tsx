@@ -102,6 +102,7 @@ const EventPage = ({navigation}) => {
         style={{
           height: 56,
           flexDirection: 'row',
+          width: width,
         }}>
         <TouchableOpacity
           style={{
@@ -136,7 +137,17 @@ const EventPage = ({navigation}) => {
             marginLeft: 8,
             justifyContent: 'center',
           }}></TouchableOpacity>
-        <TouchableOpacity></TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: 44,
+            height: 42,
+            backgroundColor: '#AA77FF',
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: width * 0.4,
+            justifyContent: 'center',
+          }}></TouchableOpacity>
       </View>
       <ScrollView
         horizontal={false}

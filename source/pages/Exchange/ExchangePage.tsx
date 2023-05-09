@@ -178,7 +178,35 @@ const ExchangePage = ({navigation}) => {
       <View
         style={{
           height: 56,
-        }}></View>
+          flexDirection: 'row',
+          width: width,
+        }}>
+        <TouchableOpacity
+          style={{
+            width: 120,
+            height: 42,
+            borderColor: '#62CDFF',
+            borderWidth: 4,
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: width * 0.05,
+            justifyContent: 'center',
+          }}>
+          <Text style={styles.PriceFont}>999999</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: 44,
+            height: 42,
+            backgroundColor: '#AA77FF',
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: width * 0.5,
+            justifyContent: 'center',
+          }}></TouchableOpacity>
+      </View>
       {/* Start Bagian Item */}
       <ScrollView
         horizontal={false}
@@ -189,6 +217,7 @@ const ExchangePage = ({navigation}) => {
         snapToAlignment={'start'}
         style={{
           height: height - 126,
+          marginTop: 10,
         }}>
         {/* Bagian Recommended Item */}
         <View style={styles.RecommendItemWrap}>

@@ -81,10 +81,58 @@ const PageVideo = ({navigation}) => {
       <View
         style={{
           height: 56,
-        }}></View>
+          flexDirection: 'row',
+          width: width,
+        }}>
+        <TouchableOpacity
+          style={{
+            width: 110,
+            height: 42,
+            backgroundColor: '#62CDFF',
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: width * 0.05,
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontFamily: 'Inter',
+              fontWeight: 'bold',
+              color: '#fff',
+              alignSelf: 'center',
+            }}>
+            Filter
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: 44,
+            height: 42,
+            backgroundColor: '#62CDFF',
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: 8,
+            justifyContent: 'center',
+          }}></TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            width: 44,
+            height: 42,
+            backgroundColor: '#AA77FF',
+            alignSelf: 'flex-start',
+            borderRadius: 14,
+            marginTop: 10,
+            marginLeft: width * 0.4,
+            justifyContent: 'center',
+          }}></TouchableOpacity>
+      </View>
       <ScrollView
         style={{
           height: height - 126,
+          marginTop: 10,
         }}>
         <VideoList
           title="Judul Video"
