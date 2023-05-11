@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import {gamepad, group_2, home, imgCart} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -26,6 +27,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   videotitle: {
     fontSize: 16,
@@ -172,16 +175,24 @@ const PageVideo = ({navigation}) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
+        <TouchableOpacity style={styles.menubutton}>
+          <Image source={home}></Image>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Game')}></TouchableOpacity>
+          onPress={() => navigation.replace('Game')}>
+          <Image source={gamepad}></Image>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Event')}></TouchableOpacity>
+          onPress={() => navigation.replace('Event')}>
+          <Image source={group_2}></Image>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Exchange')}></TouchableOpacity>
+          onPress={() => navigation.replace('Exchange')}>
+          <Image source={imgCart}></Image>
+        </TouchableOpacity>
       </View>
     </View>
   );

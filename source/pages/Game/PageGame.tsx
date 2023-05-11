@@ -13,6 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
+import {gamepad, group_2, home, imgCart} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -27,6 +28,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     backgroundColor: '#C9EEFF',
     marginHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   itemContainer: {
     justifyContent: 'center',
@@ -152,14 +155,22 @@ const PageGame = ({navigation}) => {
         }}>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Video')}></TouchableOpacity>
-        <TouchableOpacity style={styles.menubutton}></TouchableOpacity>
+          onPress={() => navigation.replace('Video')}>
+          <Image source={home}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menubutton}>
+          <Image source={gamepad}></Image>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Event')}></TouchableOpacity>
+          onPress={() => navigation.replace('Event')}>
+          <Image source={group_2}></Image>
+        </TouchableOpacity>
         <TouchableOpacity
           style={styles.menubutton}
-          onPress={() => navigation.replace('Exchange')}></TouchableOpacity>
+          onPress={() => navigation.replace('Exchange')}>
+          <Image source={imgCart}></Image>
+        </TouchableOpacity>
       </View>
     </View>
   );
