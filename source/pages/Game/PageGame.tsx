@@ -63,14 +63,29 @@ const styles = StyleSheet.create({
 });
 
 const eventItemsSmall = [
-  {nama: 'Tebak Kata', time: '', desc: 'Ini adalah deskripsi Game.'},
-  {nama: 'Tebak Gambar', time: '', desc: 'Ini adalah deskripsi Game.'},
-  {nama: 'Connect 1 to 1', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {
+    nama: 'Tebak Kata',
+    time: '',
+    desc: 'Ini adalah deskripsi Game.',
+    navigasi: 'Tebak Kata',
+  },
+  {
+    nama: 'Tebak Gambar',
+    time: '',
+    desc: 'Ini adalah deskripsi Game.',
+    navigasi: 'Tebak Gambar',
+  },
+  {
+    nama: 'Connect 1 to 1',
+    time: '',
+    desc: 'Ini adalah deskripsi Game.',
+    navigasi: '1 to 1',
+  },
   {nama: 'Game 4', time: '', desc: 'Ini adalah deskripsi Game.'},
   {nama: 'Game 5', time: '', desc: 'Ini adalah deskripsi Game.'},
 ];
 
-const renderEventItem = ({item}) => {
+const renderEventItem = ({item, navigation}) => {
   return (
     <View
       style={{
@@ -78,7 +93,9 @@ const renderEventItem = ({item}) => {
         paddingTop: 20,
         paddingBottom: 20,
       }}>
-      <TouchableOpacity style={styles.GameDisplay}></TouchableOpacity>
+      <TouchableOpacity
+        style={styles.GameDisplay}
+        onPress={() => navigation.navigate(item.navigasi)}></TouchableOpacity>
       <View>
         <Text style={styles.GameTitle}>{item.nama}</Text>
         <Text style={styles.GameDesc}>{item.desc}</Text>
@@ -140,7 +157,7 @@ const PageGame = ({navigation}) => {
           <FlatGrid
             itemDimension={130}
             data={eventItemsSmall}
-            renderItem={renderEventItem}
+            renderItem={({item}) => renderEventItem({item, navigation})}
           />
         </View>
       </View>

@@ -138,6 +138,34 @@ const PageVideo = ({navigation}) => {
           height: height - 126,
           marginTop: 10,
         }}>
+        <View
+          style={{
+            height: 150,
+            backgroundColor: '#ffffff',
+            alignItems: 'center',
+            flexDirection: 'row',
+            borderColor: '#efefef',
+            borderWidth: 1,
+          }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('PlayVideo')}
+            style={{
+              height: 90,
+              width: 120,
+              borderRadius: 30,
+              backgroundColor: '#97DEFF',
+              marginLeft: 18,
+            }}></TouchableOpacity>
+          <View
+            style={{
+              paddingHorizontal: 20,
+            }}>
+            <Text style={styles.videotitle}>Pengenalan TKJ</Text>
+            <Text style={styles.videodescriptions}>
+              Video ini berisi tentang pengenalan mata pelajaran TKJ
+            </Text>
+          </View>
+        </View>
         <VideoList
           title="Judul Video"
           desc="Ini adalah contoh dari deskripsi Video di samping"

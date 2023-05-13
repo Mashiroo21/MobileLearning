@@ -9,6 +9,10 @@ import {
   EventPage,
   ExchangePage,
   ProfilPage,
+  VideoPlayer,
+  TebakKata,
+  TebakGambar,
+  ConnectGame,
 } from '../pages';
 
 const Stack = createNativeStackNavigator();
@@ -16,6 +20,7 @@ const Stack = createNativeStackNavigator();
 const Router = () => {
   return (
     <Stack.Navigator>
+      {/* Main Route */}
       <Stack.Screen
         name="Login"
         component={LoginPage}
@@ -49,6 +54,28 @@ const Router = () => {
       <Stack.Screen
         name="Profil"
         component={ProfilPage}
+        options={{headerShown: false}}
+      />
+      {/* Main Route End */}
+      {/* Route Page Cabang */}
+      <Stack.Screen
+        name="PlayVideo"
+        component={VideoPlayer}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Tebak Kata"
+        component={TebakKata}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Tebak Gambar"
+        component={TebakGambar}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="1 to 1"
+        component={ConnectGame}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
