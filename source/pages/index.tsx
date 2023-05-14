@@ -9,6 +9,11 @@ import VideoPlayer from './Video/VideoPlayer';
 import TebakKata from './Game/TebakKata/tebakKata';
 import TebakGambar from './Game/TebakGambar/TebakGambar';
 import ConnectGame from './Game/ConnectOne/ConnectGame';
+import Starttk from './Game/StartSoal/Startsoaltk';
+import Starttg from './Game/StartSoal/Startsoaltg';
+import Startco from './Game/StartSoal/Startsoalco';
+import Soaltk from './Game/TebakKata/PageSoaltk';
+import Resulttk from './Game/TebakKata/Resulttk';
 
 export {
   LoginPage,
@@ -22,4 +27,9 @@ export {
   TebakKata,
   TebakGambar,
   ConnectGame,
+  Starttk,
+  Soaltk,
+  Starttg,
+  Startco,
+  Resulttk,
 };

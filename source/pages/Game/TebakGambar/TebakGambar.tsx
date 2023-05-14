@@ -91,15 +91,51 @@ const styles = StyleSheet.create({
 });
 
 const eventItems = [
-  {nama: '5G', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Microwave Link', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'IPV4 dan 6', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Teknologi Serat Optik', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Sistem Sensor', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'IoT', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart Device', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart Home', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart City', desc: 'Ini adalah deskripsi Materi.'},
+  {
+    nama: '5G',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Microwave Link',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'IPV4 dan 6',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Teknologi Serat Optik',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Sistem Sensor',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'IoT',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Smart Device',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Smart Home',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
+  {
+    nama: 'Smart City',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Gambar',
+  },
 ];
 
 const TebakGambar = ({navigation}) => {
@@ -167,7 +203,9 @@ const TebakGambar = ({navigation}) => {
         <View>
           {eventItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.MultiplayerView}>
+              <TouchableOpacity
+                style={styles.MultiplayerView}
+                onPress={() => navigation.navigate(item.navigasi)}>
                 <Text style={styles.MultiplayerText}>{item.nama}</Text>
               </TouchableOpacity>
             </View>

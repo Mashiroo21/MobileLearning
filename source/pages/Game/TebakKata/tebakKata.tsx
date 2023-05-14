@@ -91,35 +91,54 @@ const styles = StyleSheet.create({
 });
 
 const eventItems = [
-  {nama: '5G', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Microwave Link', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'IPV4 dan 6', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Teknologi Serat Optik', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Sistem Sensor', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'IoT', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart Device', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart Home', desc: 'Ini adalah deskripsi Materi.'},
-  {nama: 'Smart City', desc: 'Ini adalah deskripsi Materi.'},
+  {
+    nama: '5G',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Microwave Link',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'IPV4 dan 6',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Teknologi Serat Optik',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Sistem Sensor',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'IoT',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Smart Device',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Smart Home',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
+  {
+    nama: 'Smart City',
+    desc: 'Ini adalah deskripsi Materi.',
+    navigasi: 'Start Tebak Kata',
+  },
 ];
 
 const EventPage = ({navigation}) => {
-  const [imgActive, setimgActive] = useState(0);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const onchange = nativeEvent => {
-    if (nativeEvent) {
-      const slide = Math.ceil(
-        nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.widht,
-      );
-      if (slide != imgActive) {
-        setimgActive(slide);
-      }
-    }
-  };
-  const handleScroll = event => {
-    const scrollPosition = event.nativeEvent.contentOffset.x;
-    setScrollPosition(scrollPosition);
-  };
-
   return (
     <View style={styles.container}>
       <View
@@ -140,12 +159,6 @@ const EventPage = ({navigation}) => {
           style={styles.profilbtn}></TouchableOpacity>
       </View>
       <ScrollView
-        horizontal={false}
-        showsHorizontalScrollIndicator={false}
-        onScroll={handleScroll}
-        pagingEnabled={true}
-        snapToInterval={150}
-        snapToAlignment={'start'}
         style={{
           height: height - 126,
           marginTop: 10,
@@ -167,7 +180,9 @@ const EventPage = ({navigation}) => {
         <View>
           {eventItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.MultiplayerView}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate(item.navigasi)}
+                style={styles.MultiplayerView}>
                 <Text style={styles.MultiplayerText}>{item.nama}</Text>
               </TouchableOpacity>
             </View>
