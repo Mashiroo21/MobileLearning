@@ -13,7 +13,15 @@ import {
   ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
-import {gamepad, group_2, home, imgCart} from '../../Images';
+import {
+  gamepad,
+  group_2,
+  home,
+  imgCart,
+  tebakkata,
+  tebakgambar,
+  connect1,
+} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -60,29 +68,35 @@ const styles = StyleSheet.create({
     paddingTop: 2,
     textAlign: 'center',
   },
+  thumb: {
+    alignSelf: 'center',
+    height: 90,
+    width: 109,
+    borderRadius: 30,
+  },
 });
 
 const eventItemsSmall = [
   {
     nama: 'Tebak Kata',
-    time: '',
+    gambar: tebakkata,
     desc: 'Ini adalah deskripsi Game.',
     navigasi: 'Tebak Kata',
   },
   {
     nama: 'Tebak Gambar',
-    time: '',
+    gambar: tebakgambar,
     desc: 'Ini adalah deskripsi Game.',
     navigasi: 'Tebak Gambar',
   },
   {
     nama: 'Connect 1 to 1',
-    time: '',
+    gambar: connect1,
     desc: 'Ini adalah deskripsi Game.',
     navigasi: '1 to 1',
   },
-  {nama: 'Game 4', time: '', desc: 'Ini adalah deskripsi Game.'},
-  {nama: 'Game 5', time: '', desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Ini Game Baru', gambar: connect1, desc: 'Ini adalah deskripsi Game.'},
+  {nama: 'Game 5', gambar: connect1, desc: 'Ini adalah deskripsi Game.'},
 ];
 
 const renderEventItem = ({item, navigation}) => {
@@ -95,7 +109,9 @@ const renderEventItem = ({item, navigation}) => {
       }}>
       <TouchableOpacity
         style={styles.GameDisplay}
-        onPress={() => navigation.navigate(item.navigasi)}></TouchableOpacity>
+        onPress={() => navigation.navigate(item.navigasi)}>
+        <Image style={styles.thumb} source={item.gambar}></Image>
+      </TouchableOpacity>
       <View>
         <Text style={styles.GameTitle}>{item.nama}</Text>
         <Text style={styles.GameDesc}>{item.desc}</Text>

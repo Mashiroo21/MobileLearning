@@ -13,7 +13,16 @@ import {
   ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
-import {gamepad, group_2, home, imgCart} from '../../Images';
+import {
+  gamepad,
+  group_2,
+  home,
+  imgCart,
+  event1,
+  event2,
+  event3,
+  event4,
+} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -66,6 +75,12 @@ const styles = StyleSheet.create({
     margin: 3,
     color: '#D9D9D9',
   },
+  thumb: {
+    alignSelf: 'center',
+    height: height * 0.125,
+    width: width * 0.8,
+    borderRadius: 30,
+  },
 });
 
 const images = [
@@ -74,11 +89,31 @@ const images = [
 ];
 
 const eventItems = [
-  {nama: 'Multiplayer 1', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 2', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 3', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 4', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 5', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {
+    nama: 'Multiplayer 1',
+    desc: 'Ini adalah deskripsi Multiplayer.',
+    image: event1,
+  },
+  {
+    nama: 'Multiplayer 2',
+    desc: 'Ini adalah deskripsi Multiplayer.',
+    image: event2,
+  },
+  {
+    nama: 'Multiplayer 3',
+    desc: 'Ini adalah deskripsi Multiplayer.',
+    image: event3,
+  },
+  {
+    nama: 'Multiplayer 4',
+    desc: 'Ini adalah deskripsi Multiplayer.',
+    image: event4,
+  },
+  {
+    nama: 'Multiplayer 5',
+    desc: 'Ini adalah deskripsi Multiplayer.',
+    image: event1,
+  },
 ];
 
 const EventPage = ({navigation}) => {
@@ -160,6 +195,7 @@ const EventPage = ({navigation}) => {
           {eventItems.map((item, index) => (
             <View key={index}>
               <TouchableOpacity style={styles.MultiplayerView}>
+                <Image style={styles.thumb} source={item.image}></Image>
                 <Text style={styles.MultiplayerText}>{item.nama}</Text>
               </TouchableOpacity>
             </View>

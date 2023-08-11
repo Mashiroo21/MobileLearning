@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -66,37 +67,37 @@ const LoginPage = ({navigation}) => {
       </View>
 
       <View style={{marginHorizontal: 20, marginTop: 20}}>
-        <TouchableOpacity
+        <TextInput
+          placeholder="Email Address"
           style={{
             backgroundColor: '#ffffff',
             paddingVertical: 15,
             borderRadius: 90,
             justifyContent: 'center',
+            padding: 25,
           }}>
           <Text
             style={{
               color: '#a29e9e',
               marginHorizontal: 30,
-            }}>
-            Email Address
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+            }}></Text>
+        </TextInput>
+        <TextInput
+          placeholder="Password"
           style={{
             backgroundColor: '#ffffff',
             paddingVertical: 15,
             borderRadius: 90,
             justifyContent: 'center',
             marginTop: 20,
+            padding: 25,
           }}>
           <Text
             style={{
               color: '#a29e9e',
               marginHorizontal: 30,
-            }}>
-            Password
-          </Text>
-        </TouchableOpacity>
+            }}></Text>
+        </TextInput>
         <TouchableOpacity
           style={{
             backgroundColor: '#362fd9',

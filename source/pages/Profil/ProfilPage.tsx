@@ -13,6 +13,19 @@ import {
   ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
+import {
+  board,
+  clock,
+  fire,
+  group_1,
+  group_2,
+  lght,
+  trophy,
+  event1,
+  event2,
+  event3,
+  event4,
+} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -87,7 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     maxWidth: 115,
-    maxHeight: 18,
+    maxHeight: 21,
   },
   statCom: {
     fontFamily: 'Inter',
@@ -112,14 +125,30 @@ const styles = StyleSheet.create({
     bottom: 5,
     position: 'absolute',
   },
+  profileicon: {
+    alignSelf: 'center',
+    marginTop: 5,
+    marginRight: 5,
+  },
+  staticon: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  thumb: {
+    alignSelf: 'center',
+    width: 335,
+    height: 85,
+    borderRadius: 30,
+  },
 });
 
 const eventItems = [
-  {nama: 'Multiplayer 1', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 2', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 3', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 4', desc: 'Ini adalah deskripsi Multiplayer.'},
-  {nama: 'Multiplayer 5', desc: 'Ini adalah deskripsi Multiplayer.'},
+  {nama: 'Video 1', desc: 'Ini adalah deskripsi Multiplayer.', image: event1},
+  {nama: 'Video 2', desc: 'Ini adalah deskripsi Multiplayer.', image: event2},
+  {nama: 'Video 3', desc: 'Ini adalah deskripsi Multiplayer.', image: event3},
+  {nama: 'Video 4', desc: 'Ini adalah deskripsi Multiplayer.', image: event4},
+  {nama: 'Video 5', desc: 'Ini adalah deskripsi Multiplayer.', image: event1},
 ];
 
 const ProfilPage = ({navigation}) => {
@@ -129,10 +158,20 @@ const ProfilPage = ({navigation}) => {
         <View style={styles.profileTextWrap}>
           <Text style={styles.Username}>User</Text>
           <Text style={styles.UserID}>User16508</Text>
-          <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Image source={clock} style={styles.profileicon}></Image>
             <Text style={styles.commonText}>Bergabung Januari 2021</Text>
           </View>
-          <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Image source={group_1} style={styles.profileicon}></Image>
             <Text style={styles.commonText}>0 teman</Text>
           </View>
         </View>
@@ -154,15 +193,21 @@ const ProfilPage = ({navigation}) => {
               justifyContent: 'center',
             }}>
             <View style={styles.statbox}>
-              <View style={{marginLeft: 30}}>
-                <Text style={styles.statBold}>5</Text>
-                <Text style={styles.statCom}>Runtunan Hari</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Image source={fire} style={styles.staticon}></Image>
+                <View>
+                  <Text style={styles.statBold}>5</Text>
+                  <Text style={styles.statCom}>Runtunan Hari</Text>
+                </View>
               </View>
             </View>
             <View style={styles.statbox}>
-              <View style={{marginLeft: 30}}>
-                <Text style={styles.statBold}>10</Text>
-                <Text style={styles.statCom}>Total Kemenangan</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Image source={board} style={styles.staticon}></Image>
+                <View>
+                  <Text style={styles.statBold}>10</Text>
+                  <Text style={styles.statCom}>Total Kemenangan</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -174,15 +219,21 @@ const ProfilPage = ({navigation}) => {
               justifyContent: 'center',
             }}>
             <View style={styles.statbox}>
-              <View style={{marginLeft: 30}}>
-                <Text style={styles.statBold}>13</Text>
-                <Text style={styles.statCom}>Total XP</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Image source={lght} style={styles.staticon}></Image>
+                <View>
+                  <Text style={styles.statBold}>13</Text>
+                  <Text style={styles.statCom}>Total XP</Text>
+                </View>
               </View>
             </View>
             <View style={styles.statbox}>
-              <View style={{marginLeft: 30}}>
-                <Text style={styles.statBold}>Perunggu</Text>
-                <Text style={styles.statCom}>Liga</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Image source={trophy} style={styles.staticon}></Image>
+                <View>
+                  <Text style={styles.statBold}>Perunggu</Text>
+                  <Text style={styles.statCom}>Liga</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -199,7 +250,9 @@ const ProfilPage = ({navigation}) => {
                 alignItems: 'center',
                 marginLeft: -width * 0.05,
               }}>
-              <TouchableOpacity style={styles.FavBox}></TouchableOpacity>
+              <TouchableOpacity style={styles.FavBox}>
+                <Image style={styles.thumb} source={item.image}></Image>
+              </TouchableOpacity>
               <Text style={styles.FavTitle}>{item.nama}</Text>
             </View>
           ))}

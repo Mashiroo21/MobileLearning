@@ -13,7 +13,16 @@ import {
   ScrollView,
 } from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
-import {gamepad, group_2, imgCart, home} from '../../Images';
+import {
+  gamepad,
+  group_2,
+  imgCart,
+  home,
+  item1,
+  item2,
+  item3,
+  itemm3,
+} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -139,19 +148,62 @@ const styles = StyleSheet.create({
     margin: 3,
     color: '#D9D9D9',
   },
+  thumb1: {
+    alignSelf: 'center',
+  },
+  thumb2: {
+    alignSelf: 'center',
+    height: 115,
+    width: 129,
+  },
 });
 
 const allItems = [
-  {nama: 'Item 1', desc: 'Ini adalah deskripsi Item.', price: '100'},
-  {nama: 'Item 2', desc: 'Ini adalah deskripsi Item.', price: '100'},
-  {nama: 'Item 3', desc: 'Ini adalah deskripsi Item.', price: '100'},
-  {nama: 'Item 4', desc: 'Ini adalah deskripsi Item.', price: '100'},
-  {nama: 'Item 5', desc: 'Ini adalah deskripsi Item.', price: '100'},
+  {
+    nama: 'Item 1',
+    desc: 'Ini adalah deskripsi Item.',
+    price: '100',
+    image: item1,
+  },
+  {
+    nama: 'Item 2',
+    desc: 'Ini adalah deskripsi Item.',
+    price: '100',
+    image: item2,
+  },
+  {
+    nama: 'Item 3',
+    desc: 'Ini adalah deskripsi Item.',
+    price: '100',
+    image: item3,
+  },
+  {
+    nama: 'Item 4',
+    desc: 'Ini adalah deskripsi Item.',
+    price: '100',
+    image: item1,
+  },
+  {
+    nama: 'Item 5',
+    desc: 'Ini adalah deskripsi Item.',
+    price: '100',
+    image: item2,
+  },
 ];
 const recItems = [
-  {nama: 'Nama Item', desc: 'Misal Wallpaper Tema.', price: '100'},
-  {nama: 'Nama Item', desc: 'Misal Avatar Basic.', price: '100'},
-  {nama: 'Nama Item', desc: 'Misal Item Boost Score.', price: '100'},
+  {
+    nama: 'Nama Item',
+    desc: 'Misal Wallpaper Tema.',
+    price: '100',
+    image: item1,
+  },
+  {nama: 'Nama Item', desc: 'Misal Avatar Basic.', price: '100', image: item2},
+  {
+    nama: 'Nama Item',
+    desc: 'Misal Item Boost Score.',
+    price: '100',
+    image: item3,
+  },
 ];
 const images = [
   'https://i0.wp.com/blog.dimensidata.com/wp-content/uploads/Mengenal-Macam-Jenis-Jaringan-Komputer-dan-Pengertiannya.jpg',
@@ -227,7 +279,9 @@ const ExchangePage = ({navigation}) => {
         <View style={styles.RecommendItemWrap}>
           {recItems.map((item, index) => (
             <View key={index}>
-              <TouchableOpacity style={styles.RecommendItem}></TouchableOpacity>
+              <TouchableOpacity style={styles.RecommendItem}>
+                <Image style={styles.thumb1} source={item.image}></Image>
+              </TouchableOpacity>
               <View
                 style={{
                   alignSelf: 'center',
@@ -279,7 +333,9 @@ const ExchangePage = ({navigation}) => {
                 marginTop: 15,
               }}
               key={index}>
-              <TouchableOpacity style={styles.allItem}></TouchableOpacity>
+              <TouchableOpacity style={styles.allItem}>
+                <Image style={styles.thumb2} source={item.image}></Image>
+              </TouchableOpacity>
               <View
                 style={{
                   alignSelf: 'center',

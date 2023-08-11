@@ -10,6 +10,7 @@ import {
   Alert,
   Dimensions,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -66,69 +67,69 @@ const SignInPage = ({navigation}) => {
       </View>
 
       <View style={{marginHorizontal: 20, marginTop: 20}}>
-        <TouchableOpacity
+        <TextInput
+          placeholder="Email Address"
           style={{
             backgroundColor: '#ffffff',
             paddingVertical: 15,
             borderRadius: 90,
             justifyContent: 'center',
+            padding: 25,
           }}>
           <Text
             style={{
               color: '#a29e9e',
               marginHorizontal: 30,
-            }}>
-            Email Address
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#ffffff',
-            paddingVertical: 15,
-            borderRadius: 90,
-            justifyContent: 'center',
-            marginTop: 20,
-          }}>
-          <Text
-            style={{
-              color: '#a29e9e',
-              marginHorizontal: 30,
-            }}>
-            Username
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+            }}></Text>
+        </TextInput>
+        <TextInput
+          placeholder="Username"
           style={{
             backgroundColor: '#ffffff',
             paddingVertical: 15,
             borderRadius: 90,
             justifyContent: 'center',
             marginTop: 20,
+            padding: 25,
           }}>
           <Text
             style={{
               color: '#a29e9e',
               marginHorizontal: 30,
-            }}>
-            Password
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+            }}></Text>
+        </TextInput>
+        <TextInput
+          placeholder="Password"
           style={{
             backgroundColor: '#ffffff',
             paddingVertical: 15,
             borderRadius: 90,
             justifyContent: 'center',
             marginTop: 20,
+            padding: 25,
           }}>
           <Text
             style={{
               color: '#a29e9e',
               marginHorizontal: 30,
-            }}>
-            Password Confirm
-          </Text>
-        </TouchableOpacity>
+            }}></Text>
+        </TextInput>
+        <TextInput
+          placeholder="Password Confirm"
+          style={{
+            backgroundColor: '#ffffff',
+            paddingVertical: 15,
+            borderRadius: 90,
+            justifyContent: 'center',
+            marginTop: 20,
+            padding: 25,
+          }}>
+          <Text
+            style={{
+              color: '#a29e9e',
+              marginHorizontal: 30,
+            }}></Text>
+        </TextInput>
         <TouchableOpacity
           style={{
             backgroundColor: '#362fd9',
@@ -154,16 +155,7 @@ const SignInPage = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: 20,
-          }}>
-          <Text
-            style={{
-              color: '#FFFBFB',
-              fontFamily: 'kantumruy',
-              fontSize: 12,
-            }}>
-            Forgot Your Password?
-          </Text>
-        </View>
+          }}></View>
       </View>
 
       <View

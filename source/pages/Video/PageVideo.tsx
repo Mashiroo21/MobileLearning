@@ -12,7 +12,16 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {gamepad, group_2, home, imgCart} from '../../Images';
+import {
+  gamepad,
+  group_2,
+  home,
+  imgCart,
+  video1,
+  video2,
+  video3,
+  video4,
+} from '../../Images';
 
 const {height, width} = Dimensions.get('window');
 
@@ -46,9 +55,12 @@ const styles = StyleSheet.create({
     maxHeight: 72,
     paddingTop: 5,
   },
+  thumb: {
+    alignSelf: 'center',
+  },
 });
 
-const VideoList = ({desc, title}) => {
+const VideoList = ({desc, title, image}) => {
   return (
     <View
       style={{
@@ -66,7 +78,9 @@ const VideoList = ({desc, title}) => {
           borderRadius: 30,
           backgroundColor: '#97DEFF',
           marginLeft: 18,
-        }}></TouchableOpacity>
+        }}>
+        <Image source={image} style={styles.thumb}></Image>
+      </TouchableOpacity>
       <View
         style={{
           paddingHorizontal: 20,
@@ -155,7 +169,9 @@ const PageVideo = ({navigation}) => {
               borderRadius: 30,
               backgroundColor: '#97DEFF',
               marginLeft: 18,
-            }}></TouchableOpacity>
+            }}>
+            <Image source={video4} style={styles.thumb}></Image>
+          </TouchableOpacity>
           <View
             style={{
               paddingHorizontal: 20,
@@ -169,30 +185,37 @@ const PageVideo = ({navigation}) => {
         <VideoList
           title="Judul Video"
           desc="Ini adalah contoh dari deskripsi Video di samping"
+          image={video1}
         />
         <VideoList
           title="Judul Video yang Agak Panjang"
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini coba saya buat agak panjang sebagai contoh."
+          image={video2}
         />
         <VideoList
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+          image={video3}
         />
         <VideoList
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+          image={video4}
         />
         <VideoList
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+          image={video1}
         />
         <VideoList
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+          image={video2}
         />
         <VideoList
           title="Judul Video yang Sangat Sangat Panjang."
           desc="Ini adalah contoh dari deskripsi Video di samping. Deskripsi ini dibuat sangat panjang sekali untuk menguji maksimal height dari deskripsi video, apakah kira kira masih bisa tersusun rapi?"
+          image={video3}
         />
       </ScrollView>
       <View
